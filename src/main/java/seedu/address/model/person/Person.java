@@ -19,6 +19,8 @@ public class Person {
     private final Name name;
     private final Phone phone;
     private final Email email;
+    private final Department department;
+    private final Manager manager;
 
     // Data fields
     private final Address address;
@@ -27,12 +29,15 @@ public class Person {
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Department department, Manager manager,
+                  Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, department, manager, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.department = department;
+        this.manager = manager;
         this.tags.addAll(tags);
     }
 
@@ -50,6 +55,14 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public Manager getManager() {
+        return manager;
     }
 
     /**
@@ -93,13 +106,15 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getDepartment().equals(getDepartment())
+                && otherPerson.getManager().equals(getManager())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, department, manager, tags);
     }
 
     @Override
@@ -112,6 +127,10 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Department: ")
+                .append(getDepartment())
+                .append(" Manager: ")
+                .append(getManager())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
