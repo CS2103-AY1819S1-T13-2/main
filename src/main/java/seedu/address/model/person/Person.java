@@ -14,7 +14,6 @@ import seedu.address.model.tag.Tag;
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Person {
-
     // Identity fields
     private final Name name;
     private final Phone phone;
@@ -22,17 +21,19 @@ public class Person {
 
     // Data fields
     private final Address address;
+    private final Rating rating;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Person(Name name, Phone phone, Email email, Address address, Rating rating, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, address, rating, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.rating = rating;
         this.tags.addAll(tags);
     }
 
@@ -51,6 +52,11 @@ public class Person {
     public Address getAddress() {
         return address;
     }
+
+    public Rating getRating() {
+        return rating;
+    }
+
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -93,13 +99,14 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getRating().equals(getRating())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, address, rating, tags);
     }
 
     @Override
@@ -112,6 +119,8 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Rating: ")
+                .append(getRating())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
