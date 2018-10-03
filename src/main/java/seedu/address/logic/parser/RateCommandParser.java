@@ -7,7 +7,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_RATING;
 import java.util.NoSuchElementException;
 
 import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.RateCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Rating;
