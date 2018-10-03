@@ -36,7 +36,7 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 * *`list`* : lists all contacts
 * **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/Accounting m/Alice Tan` :
-adds a staff named `John Doe` to the SSENISUB.
+adds a staff named `John Doe` to SSENISUB.
 * **`delete`**`3` : deletes the 3rd staff shown in the current list
 * *`exit`* : exits the app
 
@@ -101,7 +101,7 @@ Edits the name of the 2nd staff to be `Betsy Crower` and clears all existing tag
 
 === Rating an employee: `rate`
 
-Rates an existing employee in SSENUISUB +
+Rates an existing employee in SSENISUB +
 Format: `rate INDEX r/8`
 
 Examples:
@@ -131,7 +131,7 @@ Returns any person having names `Betsy`, `Tim`, or `John`
 
 === Deleting a person : `delete`
 
-Deletes the specified person from the address book. +
+Deletes the specified person from SSENISUB. +
 Format: `delete INDEX`
 
 ****
@@ -144,7 +144,7 @@ Examples:
 
 * `list` +
 `delete 2` +
-Deletes the 2nd person in the address book.
+Deletes the 2nd person in SSENISUB.
 * `find Betsy` +
 `delete 1` +
 Deletes the 1st person in the results of the `find` command.
@@ -164,7 +164,7 @@ Examples:
 
 * `list` +
 `select 2` +
-Selects the 2nd person in the address book.
+Selects the 2nd person in SSENISUB.
 * `find Betsy` +
 `select 1` +
 Selects the 1st person in the results of the `find` command.
@@ -182,12 +182,12 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 // tag::undoredo[]
 === Undoing previous command : `undo`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
+Restores SSENISUB to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
+Undoable commands: those commands that modify SSENISUB's content (`add`, `delete`, `edit` and `clear`).
 ====
 
 Examples:
@@ -231,7 +231,7 @@ The `redo` command fails as there are no `undo` commands executed previously.
 
 === Clearing all entries : `clear`
 
-Clears all entries from the address book. +
+Clears all entries from SSENISUB. +
 Format: `clear`
 
 === Exiting the program : `exit`
@@ -251,7 +251,7 @@ Format: `unlock PASSWORD`
 
 === Saving the data
 
-Address book data are saved in the hard disk automatically after any command that changes the data. +
+SSENISUB data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
 // tag::dataencryption[]
