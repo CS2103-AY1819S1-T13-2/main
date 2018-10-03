@@ -1,7 +1,5 @@
 package seedu.address.logic.commands;
 
-import java.io.IOException;
-
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -9,7 +7,7 @@ import seedu.address.model.Model;
 /**
  * Unlocks the address book.
  */
-public class UnlockCommand extends Command{
+public class UnlockCommand extends Command {
 
     public static final String COMMAND_WORD = "unlock";
 
