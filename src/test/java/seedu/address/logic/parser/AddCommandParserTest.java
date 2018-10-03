@@ -72,6 +72,15 @@ public class AddCommandParserTest {
                 .build();
         assertParseSuccess(parser, NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB
                 + TAG_DESC_HUSBAND + TAG_DESC_FRIEND, new AddCommand(expectedPersonMultipleTags));
+
+        // private number, phone, address
+        Person ninja = new PersonBuilder().build();
+        ninja.getPhone().setPrivate("Y");
+        ninja.getAddress().setPrivate("Y");
+        ninja.getEmail().setPrivate("Y");
+        assertParseSuccess(parser,
+                " n/Alice Pauline pp/85355255 pe/alice@gmail.com pa/123, Jurong West Ave 6, #08-111",
+                new AddCommand(ninja));
     }
 
     @Test
@@ -135,7 +144,7 @@ public class AddCommandParserTest {
 
         // non-empty preamble
         assertParseFailure(parser, PREAMBLE_NON_EMPTY + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+                        + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
     }
 }

@@ -38,4 +38,22 @@ public class PhoneTest {
         assertTrue(Phone.isValidPhone("93121534"));
         assertTrue(Phone.isValidPhone("124293842033123")); // long phone numbers
     }
+
+    @Test
+    public void isPrivate() {
+        Phone phone = new Phone("92349234");
+        //default phone
+        assertFalse(phone.isPrivate());
+    }
+
+    @Test
+    public void setPrivate() {
+        Phone phone = new Phone("92349234");
+        //set to private
+        phone.setPrivate("Y");
+        assertTrue(phone.isPrivate());
+        //set to non private
+        phone.setPrivate("N");
+        assertFalse(phone.isPrivate());
+    }
 }

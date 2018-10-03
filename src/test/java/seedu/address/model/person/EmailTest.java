@@ -59,4 +59,22 @@ public class EmailTest {
         assertTrue(Email.isValidEmail("peter_jack@very-very-very-long-example.com")); // long domain name
         assertTrue(Email.isValidEmail("if.you.dream.it_you.can.do.it@example.com")); // long local part
     }
+
+    @Test
+    public void isPrivate() {
+        Email email = new Email("yxt@msn.com");
+        //default email
+        assertFalse(email.isPrivate());
+    }
+
+    @Test
+    public void setPrivate() {
+        Email email = new Email("yxt@msn.com");
+        //set to private
+        email.setPrivate("Y");
+        assertTrue(email.isPrivate());
+        //set to non private
+        email.setPrivate("N");
+        assertFalse(email.isPrivate());
+    }
 }

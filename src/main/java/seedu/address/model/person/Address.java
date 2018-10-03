@@ -19,6 +19,8 @@ public class Address {
 
     public final String value;
 
+    private boolean isPrivate;
+
     /**
      * Constructs an {@code Address}.
      *
@@ -28,6 +30,7 @@ public class Address {
         requireNonNull(address);
         checkArgument(isValidAddress(address), MESSAGE_CONSTRAINTS);
         value = address;
+        isPrivate = false;
     }
 
     /**
@@ -35,6 +38,26 @@ public class Address {
      */
     public static boolean isValidAddress(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    /**
+     * Getter for isPrivate
+     * @return isPrivate
+     */
+    public boolean isPrivate() {
+        return isPrivate;
+    }
+
+    /**
+     * Sets the isPrivate field to true or false depending on input
+     * @param input a "Y" or "N" for Yes or No.
+     */
+    public void setPrivate(String input) {
+        if (input.equals("Y")) {
+            isPrivate = true;
+        } else if (input.equals("N")) {
+            isPrivate = false;
+        }
     }
 
     @Override
