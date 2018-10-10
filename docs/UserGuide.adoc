@@ -1,4 +1,4 @@
-= AddressBook Level 4 - User Guide
+= SSENISUB - User Guide
 :site-section: UserGuide
 :toc:
 :toc-title:
@@ -14,17 +14,18 @@ ifdef::env-github[]
 endif::[]
 :repoURL: https://github.com/se-edu/addressbook-level4
 
-By: `Team SE-EDU`      Since: `Jun 2016`      Licence: `MIT`
+By: `Team T13-2`      Since: `Oct 2018`      Licence: `MIT`
 
 == Introduction
 
-AddressBook Level 4 (AB4) is for those who *prefer to use a desktop app for managing contacts*. More importantly, AB4 is *optimized for those who prefer to work with a Command Line Interface* (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB4 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <<Quick Start>> to get started. Enjoy!
+SSENISUB is intended for organizations who follows a strict hierarchical structure to manage their manpower and
+allows the staff to use this as contact book. Jump to the <<Quick Start>> to get started. Enjoy!
 
 == Quick Start
 
 .  Ensure you have Java version `9` or later installed in your Computer.
-.  Download the latest `addressbook.jar` link:{repoURL}/releases[here].
-.  Copy the file to the folder you want to use as the home folder for your Address Book.
+.  Download the latest `SSENISUB.jar` link:{repoURL}/releases[here].
+.  Copy the file to the folder you want to use as the home folder for the SSENISUB software.
 .  Double-click the file to start the app. The GUI should appear in a few seconds.
 +
 image::Ui.png[width="790"]
@@ -33,9 +34,10 @@ image::Ui.png[width="790"]
 e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 .  Some example commands you can try:
 
-* *`list`* : lists all contacts
-* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : adds a contact named `John Doe` to the Address Book.
-* **`delete`**`3` : deletes the 3rd contact shown in the current list
+* *`list`* : lists all staff
+* **`add`**`n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/Accounting m/Alice Tan` :
+adds a staff named `John Doe` to SSENISUB.
+* **`delete`**`3` : deletes the 3rd staff shown in the current list
 * *`exit`* : exits the app
 
 .  Refer to <<Features>> for details of each command.
@@ -48,55 +50,68 @@ e.g. typing *`help`* and pressing kbd:[Enter] will open the help window.
 
 * Words in `UPPER_CASE` are the parameters to be supplied by the user e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 * Items in square brackets are optional e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
-* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as `{nbsp}` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+* Items with `…`​ after them can be used multiple times including zero times e.g. `[t/TAG]...` can be used as
+`{nbsp}` (i.e. 0 times), `t/staff`, `t/manager` etc.
 * Parameters can be in any order e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
+* Adding a 'p' infront of the parameter private. e.g. pp/PHONE makes the phone number private to the other user.
 ====
 
 === Viewing help : `help`
 
 Format: `help`
 
-=== Adding a person: `add`
+=== Adding a staff: `add`
 
-Adds a person to the address book +
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...`
+Adds a staff to the SSENISUB +
+Format: `add n/NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS d/DEPARTMENT m/MANAGER [t/TAG]...`
 
 [TIP]
-A person can have any number of tags (including 0)
+A staff can have any number of tags (including 0)
 
 Examples:
 
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01 d/Accounting m/Marcus Lim t/staff`
+* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 d/Marketing m/Edmund Tan t/staff`
 
-=== Listing all persons : `list`
+=== Listing all staff : `list`
 
-Shows a list of all persons in the address book. +
+Shows a list of all staff in SSENISUB. +
 Format: `list`
 
-=== Editing a person : `edit`
+=== Editing a staff : `edit`
 
-Edits an existing person in the address book. +
-Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]...`
+Edits an existing staff in SSENISUB. +
+Format: `edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [s/SALARY] [d/DEPARTMENT] [m/MANAGER] [t/TAG]...`
 
 ****
-* Edits the person at the specified `INDEX`. The index refers to the index number shown in the displayed person list. The index *must be a positive integer* 1, 2, 3, ...
+* Edits the staff at the specified `INDEX`. The index refers to the index number shown in the displayed staff list. The index *must be a positive integer* 1, 2, 3, ...
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.
-* You can remove all the person's tags by typing `t/` without specifying any tags after it.
+* When editing tags, the existing tags of the staff will be removed i.e adding of tags is not cumulative.
+* You can remove all the staff's tags by typing `t/` without specifying any tags after it.
 ****
 
 Examples:
 
-* `edit 1 p/91234567 e/johndoe@example.com` +
-Edits the phone number and email address of the 1st person to be `91234567` and `johndoe@example.com` respectively.
+* `edit 1 p/91234567 e/johndoe@example.com s/1000` +
+Edits the phone number, email address, salary of the 1st staff to be `91234567`, `johndoe@example.com` and `1000`
+respectively.
 * `edit 2 n/Betsy Crower t/` +
-Edits the name of the 2nd person to be `Betsy Crower` and clears all existing tags.
+Edits the name of the 2nd staff to be `Betsy Crower` and clears all existing tags.
 
-=== Locating persons by name: `find`
+=== Rating a staff: `rate`
 
-Finds persons whose names contain any of the given keywords. +
+Rates an existing staff in SSENISUB +
+Format: `rate INDEX r/8`
+
+Examples:
+
+* `rate 3 r/8` +
+Rate the 3rd staff of a rating 8.
+
+=== Locating staff by name: `find`
+
+Finds staff whose names contain any of the given keywords. +
 Format: `find KEYWORD [MORE_KEYWORDS]`
 
 ****
@@ -104,7 +119,7 @@ Format: `find KEYWORD [MORE_KEYWORDS]`
 * The order of the keywords does not matter. e.g. `Hans Bo` will match `Bo Hans`
 * Only the name is searched.
 * Only full words will be matched e.g. `Han` will not match `Hans`
-* Persons matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
+* Staff matching at least one keyword will be returned (i.e. `OR` search). e.g. `Hans Bo` will return `Hans Gruber`, `Bo Yang`
 ****
 
 Examples:
@@ -112,16 +127,16 @@ Examples:
 * `find John` +
 Returns `john` and `John Doe`
 * `find Betsy Tim John` +
-Returns any person having names `Betsy`, `Tim`, or `John`
+Returns any staff having names `Betsy`, `Tim`, or `John`
 
-=== Deleting a person : `delete`
+=== Deleting a staff : `delete`
 
-Deletes the specified person from the address book. +
+Deletes the specified staff from SSENISUB. +
 Format: `delete INDEX`
 
 ****
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the staff at the specified `INDEX`.
+* The index refers to the index number shown in the displayed staff list.
 * The index *must be a positive integer* 1, 2, 3, ...
 ****
 
@@ -129,19 +144,19 @@ Examples:
 
 * `list` +
 `delete 2` +
-Deletes the 2nd person in the address book.
+Deletes the 2nd staff in SSENISUB.
 * `find Betsy` +
 `delete 1` +
-Deletes the 1st person in the results of the `find` command.
+Deletes the 1st staff in the results of the `find` command.
 
-=== Selecting a person : `select`
+=== Selecting a staff : `select`
 
-Selects the person identified by the index number used in the displayed person list. +
+Selects the staff identified by the index number used in the displayed staff list. +
 Format: `select INDEX`
 
 ****
-* Selects the person and loads the Google search page the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Selects the staff and loads the Google search page the staff at the specified `INDEX`.
+* The index refers to the index number shown in the displayed staff list.
 * The index *must be a positive integer* `1, 2, 3, ...`
 ****
 
@@ -149,10 +164,10 @@ Examples:
 
 * `list` +
 `select 2` +
-Selects the 2nd person in the address book.
+Selects the 2nd staff in SSENISUB.
 * `find Betsy` +
 `select 1` +
-Selects the 1st person in the results of the `find` command.
+Selects the 1st staff in the results of the `find` command.
 
 === Listing entered commands : `history`
 
@@ -167,12 +182,12 @@ Pressing the kbd:[&uarr;] and kbd:[&darr;] arrows will display the previous and 
 // tag::undoredo[]
 === Undoing previous command : `undo`
 
-Restores the address book to the state before the previous _undoable_ command was executed. +
+Restores SSENISUB to the state before the previous _undoable_ command was executed. +
 Format: `undo`
 
 [NOTE]
 ====
-Undoable commands: those commands that modify the address book's content (`add`, `delete`, `edit` and `clear`).
+Undoable commands: those commands that modify SSENISUB's content (`add`, `delete`, `edit` and `clear`).
 ====
 
 Examples:
@@ -216,7 +231,7 @@ The `redo` command fails as there are no `undo` commands executed previously.
 
 === Clearing all entries : `clear`
 
-Clears all entries from the address book. +
+Clears all entries from SSENISUB. +
 Format: `clear`
 
 === Exiting the program : `exit`
@@ -224,9 +239,19 @@ Format: `clear`
 Exits the program. +
 Format: `exit`
 
+=== Locking SSENISUB: `lock`
+
+Locks the SSENISUB with a specified password. +
+Format: `lock PASSWORD`
+
+=== Unlocking SSENISUB: `unlock`
+
+Unlocks the SSENISUB with a specified password. +
+Format: `unlock PASSWORD`
+
 === Saving the data
 
-Address book data are saved in the hard disk automatically after any command that changes the data. +
+SSENISUB data are saved in the hard disk automatically after any command that changes the data. +
 There is no need to save manually.
 
 // tag::dataencryption[]
@@ -242,19 +267,30 @@ _{explain how the user can enable/disable data encryption}_
 
 == Command Summary
 
-* *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
-e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
+* *Add* `add n/NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS d/DEPARTMENT m/MANAGER [t/TAG]...` +
+e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 d/Accounting m/David Choo t/staff`
 * *Clear* : `clear`
 * *Delete* : `delete INDEX` +
 e.g. `delete 3`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
+* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [s/SALARY] [d/DEPARTMENT] [m/MANAGER] [t/TAG]..
+.` +
 e.g. `edit 2 n/James Lee e/jameslee@example.com`
+* *Feedback* : `feedback INDEX [f/FEEDBACK]` +
+e.g. `feedback 1 f/Excellent`
 * *Find* : `find KEYWORD [MORE_KEYWORDS]` +
 e.g. `find James Jake`
+* *Rate* : `rate INDEX [r/RATING]` +
+e.g. `rate 1 r/8`
+* *Sort* : `sort [KEYWORD]` +
+e.g. `sort ASCENDING`
+* *Delete All* : `deleteall`
 * *List* : `list`
+* *Lock SSENISUB* : `lock PASSWORD`
+* *Unlock SSENISUB* : `unlock PASSWORD`
 * *Help* : `help`
 * *Select* : `select INDEX` +
 e.g.`select 2`
 * *History* : `history`
 * *Undo* : `undo`
 * *Redo* : `redo`
+* *Exit* : `exit`
