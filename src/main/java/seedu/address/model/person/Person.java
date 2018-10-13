@@ -22,6 +22,7 @@ public class Person {
 
     // Data fields
     private final Address address;
+    private Salary salary;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
@@ -33,6 +34,7 @@ public class Person {
         this.phone = phone;
         this.email = email;
         this.address = address;
+        this.salary = new Salary("0");
         this.tags.addAll(tags);
     }
 
@@ -50,6 +52,18 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public Salary getSalary() {
+        return salary;
+    }
+
+    public void setSalary(String input) {
+        salary = new Salary(input);
+    }
+
+    public void setSalary(Salary salary) {
+        this.salary = salary;
     }
 
     /**
@@ -93,6 +107,7 @@ public class Person {
                 && otherPerson.getPhone().equals(getPhone())
                 && otherPerson.getEmail().equals(getEmail())
                 && otherPerson.getAddress().equals(getAddress())
+                && otherPerson.getSalary().equals(getSalary())
                 && otherPerson.getTags().equals(getTags());
     }
 
@@ -112,6 +127,8 @@ public class Person {
                 .append(getEmail())
                 .append(" Address: ")
                 .append(getAddress())
+                .append(" Salary: ")
+                .append(getSalary())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();
