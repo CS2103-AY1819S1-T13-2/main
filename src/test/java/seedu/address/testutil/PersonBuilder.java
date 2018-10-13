@@ -4,7 +4,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import seedu.address.model.person.Address;
+import seedu.address.model.person.Department;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Manager;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
@@ -20,11 +22,15 @@ public class PersonBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
+    public static final String DEFAULT_DEPARTMENT = "Accounting";
+    public static final String DEFAULT_MANAGER = "Ben Leong";
 
     private Name name;
     private Phone phone;
     private Email email;
     private Address address;
+    private Department department;
+    private Manager manager;
     private Set<Tag> tags;
 
     public PersonBuilder() {
@@ -32,6 +38,8 @@ public class PersonBuilder {
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
         address = new Address(DEFAULT_ADDRESS);
+        department = new Department(DEFAULT_DEPARTMENT);
+        manager = new Manager(DEFAULT_MANAGER);
         tags = new HashSet<>();
     }
 
@@ -43,6 +51,8 @@ public class PersonBuilder {
         phone = personToCopy.getPhone();
         email = personToCopy.getEmail();
         address = personToCopy.getAddress();
+        department = personToCopy.getDepartment();
+        manager = personToCopy.getManager();
         tags = new HashSet<>(personToCopy.getTags());
     }
 
@@ -86,8 +96,24 @@ public class PersonBuilder {
         return this;
     }
 
+    /**
+     * Sets the {@code Department} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withDepartment(String department) {
+        this.department = new Department(department);
+        return this;
+    }
+
+    /**
+     * Sets the {@code Manager} of the {@code Person} that we are building.
+     */
+    public PersonBuilder withManager(String manager) {
+        this.manager = new Manager(manager);
+        return this;
+    }
+
     public Person build() {
-        return new Person(name, phone, email, address, tags);
+        return new Person(name, phone, email, address, department, manager, tags);
     }
 
 }

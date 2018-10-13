@@ -4,5 +4,7 @@
     <phone>9482424</phone>
     <email>hans@example</email>
     <address>4th street</address>
+    <department>Accounting</department>
+    <manager>Ben Leong</manager>
     <tagged>friends</tagged>
 </person>

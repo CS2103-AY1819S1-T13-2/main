@@ -6,6 +6,8 @@
         <phone>94351253</phone>
         <email>alice@example.com</email>
         <address>123, Jurong West Ave 6, #08-111</address>
+        <department>Accounting</department>
+        <manager>Ben Leong</manager>
         <tagged>friends</tagged>
     </persons>
 
@@ -15,6 +17,8 @@
         <phone>94351253</phone>
         <email>pauline@example.com</email>
         <address>4th street</address>
+        <department>Accounting</department>
+        <manager>Marcus Tan</manager>
     </persons>
 
 </addressbook>
