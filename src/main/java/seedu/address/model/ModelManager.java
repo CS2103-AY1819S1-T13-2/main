@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
+import seedu.address.commons.events.model.UnlockEvent;
 import seedu.address.model.person.Person;
 
 /**
@@ -51,9 +52,19 @@ public class ModelManager extends ComponentManager implements Model {
         return versionedAddressBook;
     }
 
-    /** Raises an event to indicate the model has changed */
+    /**
+     * Raises an event to indicate the model has changed
+     */
     private void indicateAddressBookChanged() {
         raise(new AddressBookChangedEvent(versionedAddressBook));
+    }
+
+    /**
+     *
+     * @param string
+     */
+    public void indicateUnlock(String string) {
+        raise(new UnlockEvent(string));
     }
 
     @Override

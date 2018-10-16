@@ -10,6 +10,7 @@ import com.google.common.eventbus.Subscribe;
 import seedu.address.commons.core.ComponentManager;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.events.model.AddressBookChangedEvent;
+import seedu.address.commons.events.model.UnlockEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
 import seedu.address.model.ReadOnlyAddressBook;
@@ -19,7 +20,8 @@ import seedu.address.model.UserPrefs;
  * Manages storage of AddressBook data in local storage.
  */
 public class StorageManager extends ComponentManager implements Storage {
-
+    private static boolean locked;
+    private static String password = " otto";
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
     private AddressBookStorage addressBookStorage;
     private UserPrefsStorage userPrefsStorage;
@@ -27,6 +29,7 @@ public class StorageManager extends ComponentManager implements Storage {
 
     public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
         super();
+        this.locked = true;
         this.addressBookStorage = addressBookStorage;
         this.userPrefsStorage = userPrefsStorage;
     }
@@ -58,6 +61,7 @@ public class StorageManager extends ComponentManager implements Storage {
 
     @Override
     public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
+        // if (locked) throw new IOException("hlh kntl lom unlock yang atas");
         return readAddressBook(addressBookStorage.getAddressBookFilePath());
     }
 
@@ -74,6 +78,8 @@ public class StorageManager extends ComponentManager implements Storage {
 
     @Override
     public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
+        if (locked) logger.info("gabisa jir");
+        if (locked) return;
         logger.fine("Attempting to write to data file: " + filePath);
         addressBookStorage.saveAddressBook(addressBook, filePath);
     }
@@ -90,4 +96,15 @@ public class StorageManager extends ComponentManager implements Storage {
         }
     }
 
+    @Override
+    @Subscribe
+    public void handleUnlockEvent(UnlockEvent event) {
+        logger.info(LogsCenter.getEventHandlingLogMessage(event, "kental kental"));
+        logger.info("hai km" + event.password);
+        if (this.password.equals(event.password)) {
+            logger.info("WAH BUKA BUKAAN");
+            this.locked = false;
+        } else {
+        }
+    }
 }
