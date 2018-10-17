@@ -77,7 +77,7 @@ public class StorageManager extends ComponentManager implements Storage {
 
     @Override
     public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
-        if (locked){
+        if (locked) {
             logger.info("Unable to save address book, address book locked.");
         }
         if (locked) {
