@@ -60,11 +60,10 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     /**
-     *
-     * @param string
+     * Raises an event to indicate address book is unlocked
      */
-    public void indicateUnlock(String string) {
-        raise(new UnlockEvent(string));
+    public void indicateUnlock(String password) {
+        raise(new UnlockEvent(password));
     }
 
     @Override

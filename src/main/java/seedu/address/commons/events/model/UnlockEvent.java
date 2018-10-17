@@ -13,6 +13,6 @@ public class UnlockEvent extends BaseEvent {
 
     @Override
     public String toString() {
-        return "dia ngirim password " + password;
+        return "Password entered is " + password;
     }
 }

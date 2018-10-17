@@ -19,7 +19,7 @@ public class UnlockCommandParser implements Parser<UnlockCommand> {
      */
     @Override
     public UnlockCommand parse(String userInput) throws ParseException {
-        return new UnlockCommand(userInput);
+        return new UnlockCommand(userInput.trim());
     }
 
 }

@@ -1,6 +1,6 @@
 package seedu.address.logic.commands;
 
-import seedu.address.commons.events.model.UnlockEvent;
+// import seedu.address.commons.events.model.UnlockEvent;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
@@ -34,6 +34,6 @@ public class UnlockCommand extends Command {
     @Override
     public CommandResult execute(Model model, CommandHistory history) throws CommandException {
         model.indicateUnlock(password);
-        return new CommandResult("WOII DAH DICOBA " + password);
+        return new CommandResult("Password successfully entered.");
     }
 }

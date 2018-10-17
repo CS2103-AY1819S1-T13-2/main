@@ -13,6 +13,7 @@ import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.commons.events.model.UnlockEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
+import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.UserPrefs;
 
@@ -21,11 +22,12 @@ import seedu.address.model.UserPrefs;
  */
 public class StorageManager extends ComponentManager implements Storage {
     private static boolean locked;
-    private static String password = " otto";
+    private static String password = "password123";
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
     private AddressBookStorage addressBookStorage;
     private UserPrefsStorage userPrefsStorage;
 
+    public static final String SUCCESS = "Address book successfully unlocked.";
 
     public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
         super();
@@ -61,7 +63,7 @@ public class StorageManager extends ComponentManager implements Storage {
 
     @Override
     public Optional<ReadOnlyAddressBook> readAddressBook() throws DataConversionException, IOException {
-        // if (locked) throw new IOException("hlh kntl lom unlock yang atas");
+        // if (locked) throw new IOException("Enter password to unlock address book.");
         return readAddressBook(addressBookStorage.getAddressBookFilePath());
     }
 
@@ -78,7 +80,7 @@ public class StorageManager extends ComponentManager implements Storage {
 
     @Override
     public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
-        if (locked) logger.info("gabisa jir");
+        if (locked) logger.info("Unable to save address book, address book locked.");
         if (locked) return;
         logger.fine("Attempting to write to data file: " + filePath);
         addressBookStorage.saveAddressBook(addressBook, filePath);
@@ -99,12 +101,13 @@ public class StorageManager extends ComponentManager implements Storage {
     @Override
     @Subscribe
     public void handleUnlockEvent(UnlockEvent event) {
-        logger.info(LogsCenter.getEventHandlingLogMessage(event, "kental kental"));
-        logger.info("hai km" + event.password);
+        logger.info(LogsCenter.getEventHandlingLogMessage(event, "Unlock in progress."));
+        logger.info("Password entered is " + event.password);
         if (this.password.equals(event.password)) {
-            logger.info("WAH BUKA BUKAAN");
+            logger.info("Address book successfully unlocked.");
             this.locked = false;
         } else {
+            logger.info("Address book failed to unlock.");
         }
     }
 }

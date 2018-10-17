@@ -76,5 +76,8 @@ public interface Model {
      */
     void commitAddressBook();
 
-    void indicateUnlock(String string);
+    /**
+     * Indicates when address book is unlocked.
+     */
+    void indicateUnlock(String password);
 }
