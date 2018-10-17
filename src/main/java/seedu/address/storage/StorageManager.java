@@ -13,7 +13,6 @@ import seedu.address.commons.events.model.AddressBookChangedEvent;
 import seedu.address.commons.events.model.UnlockEvent;
 import seedu.address.commons.events.storage.DataSavingExceptionEvent;
 import seedu.address.commons.exceptions.DataConversionException;
-import seedu.address.logic.commands.CommandResult;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.UserPrefs;
 
@@ -22,12 +21,10 @@ import seedu.address.model.UserPrefs;
  */
 public class StorageManager extends ComponentManager implements Storage {
     private static boolean locked;
-    private static String password = "password123";
     private static final Logger logger = LogsCenter.getLogger(StorageManager.class);
+    private static String password = "password123";
     private AddressBookStorage addressBookStorage;
     private UserPrefsStorage userPrefsStorage;
-
-    public static final String SUCCESS = "Address book successfully unlocked.";
 
     public StorageManager(AddressBookStorage addressBookStorage, UserPrefsStorage userPrefsStorage) {
         super();
@@ -80,8 +77,12 @@ public class StorageManager extends ComponentManager implements Storage {
 
     @Override
     public void saveAddressBook(ReadOnlyAddressBook addressBook, Path filePath) throws IOException {
-        if (locked) logger.info("Unable to save address book, address book locked.");
-        if (locked) return;
+        if (locked){
+            logger.info("Unable to save address book, address book locked.");
+        }
+        if (locked) {
+            return;
+        }
         logger.fine("Attempting to write to data file: " + filePath);
         addressBookStorage.saveAddressBook(addressBook, filePath);
     }
