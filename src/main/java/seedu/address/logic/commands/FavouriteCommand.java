@@ -24,7 +24,7 @@ public class FavouriteCommand extends Command {
             + "by the index number used in the last person listing.\n"
             + "Parameters: INDEX (must be a positive integer)\n"
             + "Example: " + COMMAND_WORD + " 1 ";
-    public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Added person to favourites: %1$s";
+    public static final String MESSAGE_FAVOURITE_PERSON_SUCCESS = "Person added to favourites: %1$s";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book.";
     public static final String MESSAGE_UNFAVOURITE_PERSON_SUCCESS = "Person removed from favourites: %1$s";
     private final Index index;
