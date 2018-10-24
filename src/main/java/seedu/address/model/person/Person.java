@@ -30,13 +30,14 @@ public class Person {
     private final PayDeductibles deductibles;
     private final Rating rating;
     private final Set<Tag> tags = new HashSet<>();
+    private boolean favourite;
 
     /**
      * Every field must be present and not null.
      */
     public Person(Name name, Phone phone, Email email, Address address, Rating rating, Department department,
                   Manager manager, Salary salary, OtHour hours, OtRate rate,
-                  PayDeductibles deductibles, Set<Tag> tags) {
+                  PayDeductibles deductibles, Set<Tag> tags, boolean favourite) {
         requireAllNonNull(name, phone, email, address, rating, department, manager, tags);
         this.name = name;
         this.phone = phone;
@@ -50,6 +51,7 @@ public class Person {
         this.department = department;
         this.manager = manager;
         this.tags.addAll(tags);
+        this.favourite = favourite;
     }
 
     public Name getName() {
@@ -95,6 +97,8 @@ public class Person {
     public Manager getManager() {
         return manager;
     }
+
+    public boolean getFavourite() { return favourite; }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -150,7 +154,7 @@ public class Person {
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, rating, department, manager, tags);
+        return Objects.hash(name, phone, email, address, rating, department, manager, tags, favourite);
     }
 
     @Override

@@ -42,6 +42,8 @@ public interface Model {
      */
     void updatePerson(Person target, Person editedPerson);
 
+    void favouritePerson(Person target, Person favouritedPerson);
+
     /** Returns an unmodifiable view of the filtered person list */
     ObservableList<Person> getFilteredPersonList();
 

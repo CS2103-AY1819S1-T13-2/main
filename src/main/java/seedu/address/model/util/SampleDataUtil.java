@@ -29,27 +29,27 @@ public class SampleDataUtil {
             new Person(new Name("Alex Yeoh"), new Phone("87438807"), new Email("alexyeoh@example.com"),
                 new Address("Blk 30 Geylang Street 29, #06-40"), new Rating("10"), new Department("Accounting"),
                     new Manager("Ben Leong"), new Salary("2000"), new OtHour("10"), new OtRate("10"),
-                    new PayDeductibles("200"), getTagSet("friends")),
+                    new PayDeductibles("200"), getTagSet("friends"), false),
             new Person(new Name("Bernice Yu"), new Phone("99272758"), new Email("berniceyu@example.com"),
                 new Address("Blk 30 Lorong 3 Serangoon Gardens, #07-18"), new Rating("2"), new Department("Marketing"),
                     new Manager("Marcus Tan"), new Salary("2500"), new OtHour("5"), new OtRate("20"),
-                    new PayDeductibles("250"), getTagSet("colleagues", "friends")),
+                    new PayDeductibles("250"), getTagSet("colleagues", "friends"), false),
             new Person(new Name("Charlotte Oliveiro"), new Phone("93210283"), new Email("charlotte@example.com"),
                 new Address("Blk 11 Ang Mo Kio Street 74, #11-04"), new Rating("5"), new Department("Tech"),
                     new Manager("Moses Lim"), new Salary("3000"), new OtHour("15"), new OtRate("15"),
-                    new PayDeductibles("300"), getTagSet("neighbours")),
+                    new PayDeductibles("300"), getTagSet("neighbours"), false),
             new Person(new Name("David Li"), new Phone("91031282"), new Email("lidavid@example.com"),
                 new Address("Blk 436 Serangoon Gardens Street 26, #16-43"), new Rating("8"),
                     new Department("Accounting"), new Manager("Lionel Lim"), new Salary("3500"),
-                    new OtHour("25"), new OtRate("10"), new PayDeductibles("350"), getTagSet("family")),
+                    new OtHour("25"), new OtRate("10"), new PayDeductibles("350"), getTagSet("family"), false),
             new Person(new Name("Irfan Ibrahim"), new Phone("92492021"), new Email("irfan@example.com"),
                 new Address("Blk 47 Tampines Street 20, #17-35"), new Rating("7"), new Department("Marketing"),
                     new Manager("Edward Loh"), new Salary("4000"), new OtHour("40"), new OtRate("10"),
-                    new PayDeductibles("400"), getTagSet("classmates")),
+                    new PayDeductibles("400"), getTagSet("classmates"), false),
             new Person(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
                 new Address("Blk 45 Aljunied Street 85, #11-31"), new Rating("3"), new Department("Tech"),
                     new Manager("Joanne Lee"), new Salary("5000"), new OtHour("10"), new OtRate("10"),
-                    new PayDeductibles("500"), getTagSet("colleagues"))
+                    new PayDeductibles("500"), getTagSet("colleagues"), false)
         };
     }
 

@@ -53,6 +53,8 @@ public class XmlAdaptedPerson {
     private String rate;
     @XmlElement(required = true)
     private String deductibles;
+    @XmlElement(required = true)
+    private boolean favourite;
 
     @XmlElement
     private List<XmlAdaptedTag> tagged = new ArrayList<>();
@@ -210,8 +212,11 @@ public class XmlAdaptedPerson {
         final PayDeductibles modelDeductibles = new PayDeductibles(deductibles);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
+
+        final boolean modelFavourite = this.favourite;
+
         return new Person(modelName, modelPhone, modelEmail, modelAddress, modelRating, modelDepartment, modelManager,
-                modelSalary, modelHours, modelRate, modelDeductibles, modelTags);
+                modelSalary, modelHours, modelRate, modelDeductibles, modelTags, modelFavourite);
     }
 
     @Override

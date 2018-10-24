@@ -83,6 +83,14 @@ public class ModelManager extends ComponentManager implements Model {
         indicateAddressBookChanged();
     }
 
+    @Override
+    public void favouritePerson(Person target, Person favouritedPerson){
+        requireAllNonNull(target, favouritedPerson);
+
+        versionedAddressBook.favouritePerson(target, favouritedPerson);
+        indicateAddressBookChanged();
+    }
+
     //=========== Filtered Person List Accessors =============================================================
 
     /**
