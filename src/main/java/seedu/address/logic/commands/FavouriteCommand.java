@@ -1,17 +1,18 @@
 package seedu.address.logic.commands;
+
 import static java.util.Objects.requireNonNull;
 import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
+
 import java.util.List;
-import java.util.Set;
+
 import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.CommandHistory;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.person.*;
+import seedu.address.model.person.Person;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
-import seedu.address.model.tag.Tag;
 
 /**
  * Favourites an exisiting contact
@@ -52,9 +53,11 @@ public class FavouriteCommand extends Command {
         }
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         if (personToFavourite.getFavourite()) {
-            return new CommandResult(String.format(MESSAGE_UNFAVOURITE_PERSON_SUCCESS, favouritedPerson.getName().fullName));
+            return new CommandResult(String.format(MESSAGE_UNFAVOURITE_PERSON_SUCCESS,
+                    favouritedPerson.getName().fullName));
         } else {
-            return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, favouritedPerson.getName().fullName));
+            return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS,
+                    favouritedPerson.getName().fullName));
         }
     }
     /**

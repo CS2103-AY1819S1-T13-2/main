@@ -90,7 +90,7 @@ public class AddressBook implements ReadOnlyAddressBook {
      * Sorts the list to show favourite contacts first.
      * {@code AddressBook}'s tag list will be updated with the tags of {@code favouritedReadOnlyPerson}.
      */
-    public void favouritePerson(Person target, Person favouritedPerson){
+    public void favouritePerson(Person target, Person favouritedPerson) {
         requireNonNull(favouritedPerson);
 
         // Person favouritedPerson = new Person(favouritedPerson);

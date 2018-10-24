@@ -84,7 +84,7 @@ public class ModelManager extends ComponentManager implements Model {
     }
 
     @Override
-    public void favouritePerson(Person target, Person favouritedPerson){
+    public void favouritePerson(Person target, Person favouritedPerson) {
         requireAllNonNull(target, favouritedPerson);
 
         versionedAddressBook.favouritePerson(target, favouritedPerson);

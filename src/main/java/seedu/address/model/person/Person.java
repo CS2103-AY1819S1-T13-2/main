@@ -98,7 +98,9 @@ public class Person {
         return manager;
     }
 
-    public boolean getFavourite() { return favourite; }
+    public boolean getFavourite() {
+        return favourite;
+    }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
