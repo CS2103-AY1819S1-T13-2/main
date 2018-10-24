@@ -20,8 +20,6 @@ import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.person.Person;
-import seedu.address.model.person.exceptions.DuplicatePersonException;
-import seedu.address.testutil.Assert;
 import seedu.address.testutil.PersonBuilder;
 
 public class AddCommandTest {
@@ -121,8 +119,8 @@ public class AddCommandTest {
         }
 
         @Override
-        public void favouritePerson(Person target, Person favouritedPerson){
-                throw new AssertionError("This method should not be called.");
+        public void favouritePerson(Person target, Person favouritedPerson) {
+            throw new AssertionError("This method should not be called.");
         }
 
         @Override
