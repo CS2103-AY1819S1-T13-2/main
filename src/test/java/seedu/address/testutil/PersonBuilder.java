@@ -185,7 +185,7 @@ public class PersonBuilder {
      * Sets the {@code Favourite} of the {@code Person} that we are building.
      */
     public PersonBuilder withFavourite(boolean favourite) {
-        this.favourite = new Manager(favourite);
+        this.favourite = favourite;
         return this;
     }
 

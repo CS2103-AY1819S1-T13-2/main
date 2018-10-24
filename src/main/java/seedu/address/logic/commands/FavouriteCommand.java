@@ -52,9 +52,9 @@ public class FavouriteCommand extends Command {
         }
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         if (personToFavourite.getFavourite()) {
-            return new CommandResult(String.format(MESSAGE_UNFAVOURITE_PERSON_SUCCESS, favouritedPerson));
+            return new CommandResult(String.format(MESSAGE_UNFAVOURITE_PERSON_SUCCESS, favouritedPerson.getName().fullName));
         } else {
-            return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, favouritedPerson));
+            return new CommandResult(String.format(MESSAGE_FAVOURITE_PERSON_SUCCESS, favouritedPerson.getName().fullName));
         }
     }
     /**
