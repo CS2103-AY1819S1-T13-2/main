@@ -465,7 +465,7 @@ We are using `java.util.logging` package for logging. The `LogsCenter` class is 
 Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: `config.json`).
 
 // tag::unlockcommand[]
-=== Unlock Feature
+=== Unlock Feature (temporarily removed)
 
 ==== Introduction
 
@@ -497,6 +497,31 @@ Figure 3.8.2.1 Activity Diagram for `unlock` command
 ** Cons: Harder to implement
 
 // end::unlockcommand[]
+
+// tag::favouritecommand[]
+=== Favourite Feature
+
+==== Introduction
+
+We have implemented a favourite command that focuses on the `Logic` component. A 'FavouriteCommand` class is added.
+
+
+==== Current Implementation
+
+This `favourite` command allows contacts to be added to a favourite list and moves the contact to the top of the list.
+
+==== Design Considerations
+
+===== Implementation of favourite command
+* ** Alternative 1 (current choice):** Favourite command can be called using a command alias 'fav'
+** Pros: Easier and faster command calling
+** Cons: Ambiguity in choosing command alias (can be either fave or fav)
+
+* ** Alternative 2:** Favourite command takes in command word 'favourite'
+** Pros: Clear command word taken in
+** Cons: Slower command calling
+
+// end::favouritecommand[]
 
 //tag::Salary, OT Hours, OT Rate and Pay Deductibles For Staff[]
 === Salary, OT Hours, OT Rate and Pay Deductibles For Staff
