@@ -103,7 +103,7 @@ public class Person {
     public boolean getFavourite() {
         return favourite;
     }
-      
+
     public Feedback getFeedback() {
         return feedback;
     }

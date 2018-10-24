@@ -64,7 +64,7 @@ public class RateCommand extends Command {
         Person editedPerson = new Person(personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), rating, personToEdit.getDepartment(), personToEdit.getManager(),
                 personToEdit.getSalary(), personToEdit.getOtHours(), personToEdit.getOtRate(),
-                personToEdit.getDeductibles(), personToEdit.getFeedback(), personToEdit.getTags(), 
+                personToEdit.getDeductibles(), personToEdit.getFeedback(), personToEdit.getTags(),
                 personToEdit.getFavourite());
 
         model.updatePerson(personToEdit, editedPerson);
