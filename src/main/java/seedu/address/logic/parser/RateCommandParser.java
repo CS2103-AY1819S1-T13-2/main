@@ -15,8 +15,8 @@ import seedu.address.model.person.Rating;
 public class RateCommandParser implements Parser<RateCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the DeleteCommand
-     * and returns an DeleteCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the RateCommand
+     * and returns an RateCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public RateCommand parse(String args) throws ParseException {

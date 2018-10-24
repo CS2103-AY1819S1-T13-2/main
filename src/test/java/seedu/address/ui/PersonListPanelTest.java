@@ -106,6 +106,7 @@ public class PersonListPanelTest extends GuiUnitTest {
             builder.append("<hours>0</hours>\n");
             builder.append("<rate>0</rate>\n");
             builder.append("<deductibles>0</deductibles>\n");
+            builder.append("<feedback>-NO FEEDBACK YET-</feedback>");
             builder.append("</persons>\n");
         }
         builder.append("</addressbook>\n");

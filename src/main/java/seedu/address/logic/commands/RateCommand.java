@@ -16,7 +16,7 @@ import seedu.address.model.person.Rating;
 
 
 /**
- * Edits the details of an existing person in the address book.
+ * Edits the rating details of an existing person in the address book.
  */
 public class RateCommand extends Command {
 
@@ -64,7 +64,8 @@ public class RateCommand extends Command {
         Person editedPerson = new Person(personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), rating, personToEdit.getDepartment(), personToEdit.getManager(),
                 personToEdit.getSalary(), personToEdit.getOtHours(), personToEdit.getOtRate(),
-                personToEdit.getDeductibles(), personToEdit.getTags(), personToEdit.getFavourite());
+                personToEdit.getDeductibles(), personToEdit.getFeedback(), personToEdit.getTags(), 
+                personToEdit.getFavourite());
 
         model.updatePerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);

@@ -29,6 +29,7 @@ public class Person {
     private final OtRate otRate;
     private final PayDeductibles deductibles;
     private final Rating rating;
+    private final Feedback feedback;
     private final Set<Tag> tags = new HashSet<>();
     private boolean favourite;
 
@@ -37,7 +38,7 @@ public class Person {
      */
     public Person(Name name, Phone phone, Email email, Address address, Rating rating, Department department,
                   Manager manager, Salary salary, OtHour hours, OtRate rate,
-                  PayDeductibles deductibles, Set<Tag> tags, boolean favourite) {
+                  PayDeductibles deductibles, Feedback feedback, Set<Tag> tags, boolean favourite) {
         requireAllNonNull(name, phone, email, address, rating, department, manager, tags);
         this.name = name;
         this.phone = phone;
@@ -50,6 +51,7 @@ public class Person {
         this.rating = rating;
         this.department = department;
         this.manager = manager;
+        this.feedback = feedback;
         this.tags.addAll(tags);
         this.favourite = favourite;
     }
@@ -101,6 +103,10 @@ public class Person {
     public boolean getFavourite() {
         return favourite;
     }
+      
+    public Feedback getFeedback() {
+        return feedback;
+    }
 
     /**
      * Returns an immutable tag set, which throws {@code UnsupportedOperationException}
@@ -150,13 +156,15 @@ public class Person {
                 && otherPerson.getRating().equals(getRating())
                 && otherPerson.getDepartment().equals(getDepartment())
                 && otherPerson.getManager().equals(getManager())
+                && otherPerson.getFeedback().equals(getFeedback())
                 && otherPerson.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, rating, department, manager, tags, favourite);
+        return Objects.hash(name, phone, email, address, rating, department, manager, feedback,
+                tags, favourite);
     }
 
     @Override
@@ -183,6 +191,8 @@ public class Person {
                 .append(getDepartment())
                 .append(" Manager: ")
                 .append(getManager())
+                .append(" Feedback: ")
+                .append(getFeedback())
                 .append(" Tags: ");
         getTags().forEach(builder::append);
         return builder.toString();

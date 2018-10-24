@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import guitests.guihandles.PersonCardHandle;
 import guitests.guihandles.PersonListPanelHandle;
 import guitests.guihandles.ResultDisplayHandle;
+import guitests.guihandles.StaffPanelHandle;
 import seedu.address.model.person.Person;
 
 /**
@@ -19,10 +20,9 @@ public class GuiTestAssert {
      */
     public static void assertCardEquals(PersonCardHandle expectedCard, PersonCardHandle actualCard) {
         assertEquals(expectedCard.getId(), actualCard.getId());
-        assertEquals(expectedCard.getAddress(), actualCard.getAddress());
         assertEquals(expectedCard.getEmail(), actualCard.getEmail());
+        assertEquals(expectedCard.getDepartment(), actualCard.getDepartment());
         assertEquals(expectedCard.getName(), actualCard.getName());
-        assertEquals(expectedCard.getPhone(), actualCard.getPhone());
         assertEquals(expectedCard.getTags(), actualCard.getTags());
     }
 
@@ -31,11 +31,24 @@ public class GuiTestAssert {
      */
     public static void assertCardDisplaysPerson(Person expectedPerson, PersonCardHandle actualCard) {
         assertEquals(expectedPerson.getName().fullName, actualCard.getName());
-        assertEquals(expectedPerson.getPhone().value, actualCard.getPhone());
         assertEquals(expectedPerson.getEmail().value, actualCard.getEmail());
-        assertEquals(expectedPerson.getAddress().value, actualCard.getAddress());
+        assertEquals(expectedPerson.getDepartment().value, actualCard.getDepartment());
         assertEquals(expectedPerson.getTags().stream().map(tag -> tag.tagName).collect(Collectors.toList()),
                 actualCard.getTags());
+    }
+
+    /**
+     * Asserts that {@code actualPanel} displays the details of {@code expectedPerson}.
+     */
+    public static void assertPanelDisplaysPerson(Person expectedPerson, StaffPanelHandle actualPanel) {
+        assertEquals(expectedPerson.getName().fullName, actualPanel.getName());
+        assertEquals(expectedPerson.getPhone().value, actualPanel.getPhone());
+        assertEquals(expectedPerson.getEmail().value, actualPanel.getEmail());
+        assertEquals(expectedPerson.getAddress().value, actualPanel.getAddress());
+        assertEquals(expectedPerson.getSalary().salary, actualPanel.getSalary());
+        assertEquals(expectedPerson.getDepartment().value, actualPanel.getDepartment());
+        assertEquals(expectedPerson.getManager().fullName, actualPanel.getManager());
+        assertEquals(expectedPerson.getRating().value, actualPanel.getRating());
     }
 
     /**

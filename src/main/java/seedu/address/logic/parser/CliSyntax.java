@@ -21,6 +21,7 @@ public class CliSyntax {
     public static final Prefix PREFIX_OTHOUR = new Prefix("oth/");
     public static final Prefix PREFIX_OTRATE = new Prefix("otr/");
     public static final Prefix PREFIX_DEDUCTIBLES = new Prefix("de/");
+    public static final Prefix PREFIX_FEEDBACK = new Prefix("fb/");
 
 
 }

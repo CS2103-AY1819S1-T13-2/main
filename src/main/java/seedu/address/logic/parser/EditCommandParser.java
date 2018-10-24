@@ -11,7 +11,6 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_OTHOUR;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_OTRATE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_RATING;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SALARY;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
@@ -34,13 +33,15 @@ public class EditCommandParser implements Parser<EditCommand> {
     /**
      * Parses the given {@code String} of arguments in the context of the EditCommand
      * and returns an EditCommand object for execution.
+     *
      * @throws ParseException if the user input does not conform the expected format
      */
     public EditCommand parse(String args) throws ParseException {
+
         requireNonNull(args);
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_ADDRESS,
-                        PREFIX_RATING, PREFIX_DEPARTMENT, PREFIX_MANAGER, PREFIX_SALARY, PREFIX_OTHOUR,
+                        PREFIX_DEPARTMENT, PREFIX_MANAGER, PREFIX_SALARY, PREFIX_OTHOUR,
                         PREFIX_OTRATE, PREFIX_DEDUCTIBLES, PREFIX_TAG);
 
         Index index;
@@ -76,9 +77,6 @@ public class EditCommandParser implements Parser<EditCommand> {
         if (argMultimap.getValue(PREFIX_DEDUCTIBLES).isPresent()) {
             editPersonDescriptor.setDeductibles(ParserUtil.parseDeductibles(argMultimap
                 .getValue(PREFIX_DEDUCTIBLES).get()));
-        }
-        if (argMultimap.getValue(PREFIX_RATING).isPresent()) {
-            editPersonDescriptor.setRating(ParserUtil.parseRating(argMultimap.getValue(PREFIX_RATING).get()));
         }
         if (argMultimap.getValue(PREFIX_DEPARTMENT).isPresent()) {
             editPersonDescriptor.setDepartment(ParserUtil.parseDepartment(argMultimap.getValue(PREFIX_DEPARTMENT)

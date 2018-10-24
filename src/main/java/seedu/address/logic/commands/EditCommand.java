@@ -29,6 +29,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Department;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Feedback;
 import seedu.address.model.person.Manager;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.OtHour;
@@ -122,15 +123,16 @@ public class EditCommand extends Command {
         OtHour updatedHours = editPersonDescriptor.getHours().orElse(personToEdit.getOtHours());
         OtRate updatedRate = editPersonDescriptor.getRate().orElse(personToEdit.getOtRate());
         PayDeductibles updatedDeductibles = editPersonDescriptor.getDeductibles().orElse(personToEdit.getDeductibles());
-        Rating updatedRating = editPersonDescriptor.getRating().orElse(personToEdit.getRating());
+        Rating updatedRating = personToEdit.getRating();
         Department updatedDepartment = editPersonDescriptor.getDepartment().orElse(personToEdit.getDepartment());
         Manager updatedManager = editPersonDescriptor.getManager().orElse(personToEdit.getManager());
+        Feedback updatedFeedback = personToEdit.getFeedback();
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
         boolean updatedFavourite = personToEdit.getFavourite();
 
         return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedRating, updatedDepartment,
-                updatedManager, updatedSalary, updatedHours, updatedRate, updatedDeductibles, updatedTags,
-                updatedFavourite);
+                updatedManager, updatedSalary, updatedHours, updatedRate, updatedDeductibles, updatedFeedback,
+                updatedTags, updatedFavourite);
     }
 
     @Override
@@ -164,7 +166,6 @@ public class EditCommand extends Command {
         private OtHour hours;
         private OtRate rate;
         private PayDeductibles deductibles;
-        private Rating rating;
         private Department department;
         private Manager manager;
         private Set<Tag> tags;
@@ -184,7 +185,6 @@ public class EditCommand extends Command {
             setHours(toCopy.hours);
             setRate(toCopy.rate);
             setDeductibles(toCopy.deductibles);
-            setRating(toCopy.rating);
             setDepartment(toCopy.department);
             setManager(toCopy.manager);
             setTags(toCopy.tags);
@@ -254,21 +254,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(deductibles);
         }
 
-
         public void setAddress(Address address) {
             this.address = address;
         }
 
         public Optional<Address> getAddress() {
             return Optional.ofNullable(address);
-        }
-
-        public void setRating(Rating rating) {
-            this.rating = rating;
-        }
-
-        public Optional<Rating> getRating() {
-            return Optional.ofNullable(rating);
         }
 
         public void setDepartment(Department department) {
@@ -327,7 +318,6 @@ public class EditCommand extends Command {
                     && getHours().equals(e.getHours())
                     && getRate().equals(e.getRate())
                     && getDeductibles().equals(e.getDeductibles())
-                    && getRating().equals(e.getRating())
                     && getDepartment().equals(e.getDepartment())
                     && getManager().equals(e.getManager())
                     && getTags().equals(e.getTags());

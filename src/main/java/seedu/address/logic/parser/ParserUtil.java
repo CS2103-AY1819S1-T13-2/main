@@ -12,6 +12,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Department;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Feedback;
 import seedu.address.model.person.Manager;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.OtHour;
@@ -198,6 +199,21 @@ public class ParserUtil {
             throw new ParseException(Manager.MESSAGE_CONSTRAINTS);
         }
         return new Manager(trimmedManager);
+    }
+
+    /**
+     * Parses a {@code String feedback} into an {@code Feedback}
+     * Leading and trailing whitespaces wil be trimmed.
+     *
+     * @throws ParseException if the given {@code feedback} is invalid.
+     */
+    public static Feedback parseFeedback(String feedback) throws ParseException {
+        requireNonNull(feedback);
+        String trimmedFeedback = feedback.trim();
+        if (!Feedback.isValidFeedback(trimmedFeedback)) {
+            throw new ParseException(Feedback.MESSAGE_CONSTRAINTS);
+        }
+        return new Feedback(trimmedFeedback);
     }
 
     /**

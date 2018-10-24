@@ -15,7 +15,6 @@ import seedu.address.model.person.OtRate;
 import seedu.address.model.person.PayDeductibles;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
-import seedu.address.model.person.Rating;
 import seedu.address.model.person.Salary;
 import seedu.address.model.tag.Tag;
 
@@ -43,7 +42,6 @@ public class EditPersonDescriptorBuilder {
         descriptor.setPhone(person.getPhone());
         descriptor.setEmail(person.getEmail());
         descriptor.setAddress(person.getAddress());
-        descriptor.setRating(person.getRating());
         descriptor.setDepartment(person.getDepartment());
         descriptor.setManager(person.getManager());
         descriptor.setSalary(person.getSalary());
@@ -82,14 +80,6 @@ public class EditPersonDescriptorBuilder {
      */
     public EditPersonDescriptorBuilder withAddress(String address) {
         descriptor.setAddress(new Address(address));
-        return this;
-    }
-
-    /**
-     * Sets the {@code Rating} of the {@code EditPersonDescriptor} that we are building.
-     */
-    public EditPersonDescriptorBuilder withRating(String rating) {
-        descriptor.setRating(new Rating(rating));
         return this;
     }
 

@@ -12,6 +12,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Ruth Mueller</name>
@@ -25,6 +26,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Heinz Kurz</name>
@@ -38,6 +40,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Cornelia Meier</name>
@@ -51,6 +54,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Werner Meyer</name>
@@ -64,6 +68,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Lydia Kunz</name>
@@ -77,6 +82,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Anna Best</name>
@@ -90,6 +96,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Stefan Meier</name>
@@ -103,6 +110,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Martin Mueller</name>
@@ -116,5 +124,6 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
 </addressbook>

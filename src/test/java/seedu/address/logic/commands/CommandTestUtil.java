@@ -108,13 +108,13 @@ public class CommandTestUtil {
 
     static {
         DESC_AMY = new EditPersonDescriptorBuilder().withName(VALID_NAME_AMY)
-                .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withRating("0")
+                .withPhone(VALID_PHONE_AMY).withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY)
                 .withDepartment(VALID_DEPARTMENT_AMY).withManager(VALID_MANAGER_AMY)
                 .withSalary(VALID_SALARY_AMY).withHour(VALID_OTHOUR_AMY)
                 .withRate(VALID_OTRATE_AMY).withDeductibles(VALID_DEDUCTIBLES_AMY)
                 .withTags(VALID_TAG_FRIEND).build();
         DESC_BOB = new EditPersonDescriptorBuilder().withName(VALID_NAME_BOB)
-                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withRating("0")
+                .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB)
                 .withDepartment(VALID_DEPARTMENT_BOB).withManager(VALID_MANAGER_BOB)
                 .withSalary(VALID_SALARY_BOB).withHour(VALID_OTHOUR_BOB)
                 .withRate(VALID_OTRATE_BOB).withDeductibles(VALID_DEDUCTIBLES_BOB)

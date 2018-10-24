@@ -18,6 +18,7 @@ import org.junit.rules.ExpectedException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Feedback;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.person.Rating;
@@ -32,6 +33,7 @@ public class ParserUtilTest {
     private static final String INVALID_EMAIL = "example.com";
     private static final String INVALID_SALARY = "salary";
     private static final String INVALID_RATING = "13";
+    private static final String INVALID_FEEDBACK = " ";
     private static final String INVALID_TAG = "#friend";
 
     private static final String VALID_NAME = "Rachel Walker";
@@ -40,6 +42,7 @@ public class ParserUtilTest {
     private static final String VALID_EMAIL = "rachel@example.com";
     private static final String VALID_SALARY = "100";
     private static final String VALID_RATING = "5";
+    private static final String VALID_FEEDBACK = "Great progress!";
     private static final String VALID_TAG_1 = "friend";
     private static final String VALID_TAG_2 = "neighbour";
 
@@ -202,6 +205,29 @@ public class ParserUtilTest {
         String ratingWithWhitespace = WHITESPACE + VALID_RATING + WHITESPACE;
         Rating expectedRating = new Rating(VALID_RATING);
         assertEquals(expectedRating, ParserUtil.parseRating(ratingWithWhitespace));
+    }
+
+    @Test
+    public void parseFeedback_null_throwsNullPointerException() {
+        Assert.assertThrows(NullPointerException.class, () -> ParserUtil.parseFeedback((String) null));
+    }
+
+    @Test
+    public void parseFeedback_invalidValue_throwsParseException() {
+        Assert.assertThrows(ParseException.class, () -> ParserUtil.parseFeedback(INVALID_FEEDBACK));
+    }
+
+    @Test
+    public void parseFeedback_validValueWithoutWhitespace_returnsFeedback() throws Exception {
+        Feedback expectedFeedback = new Feedback(VALID_FEEDBACK);
+        assertEquals(expectedFeedback, ParserUtil.parseFeedback(VALID_FEEDBACK));
+    }
+
+    @Test
+    public void parseFeedback_validValueWithWhitespace_returnsTrimmedFeedback() throws Exception {
+        String feedbackWithWhitespace = WHITESPACE + VALID_FEEDBACK + WHITESPACE;
+        Feedback expectedFeedback = new Feedback(VALID_FEEDBACK);
+        assertEquals(expectedFeedback, ParserUtil.parseFeedback(feedbackWithWhitespace));
     }
 
     @Test

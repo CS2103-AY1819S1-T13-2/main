@@ -13,6 +13,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
         <tagged>friends</tagged>
     </persons>
     <persons>
@@ -27,6 +28,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
         <tagged>owesMoney</tagged>
         <tagged>friends</tagged>
     </persons>
@@ -42,6 +44,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Daniel Meier</name>
@@ -55,6 +58,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
         <tagged>friends</tagged>
     </persons>
     <persons>
@@ -69,6 +73,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>Fiona Kunz</name>
@@ -82,6 +87,7 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
     <persons>
         <name>George Best</name>
@@ -95,5 +101,6 @@
         <hours>0</hours>
         <rate>0</rate>
         <deductibles>0</deductibles>
+        <feedback>-NO FEEDBACK YET-</feedback>
     </persons>
 </addressbook>

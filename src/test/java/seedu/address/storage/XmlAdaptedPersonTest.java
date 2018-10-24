@@ -1,8 +1,11 @@
 package seedu.address.storage;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static seedu.address.storage.XmlAdaptedPerson.MISSING_FIELD_MESSAGE_FORMAT;
 import static seedu.address.testutil.TypicalPersons.BENSON;
+import static seedu.address.testutil.TypicalPersons.CARL;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +38,16 @@ public class XmlAdaptedPersonTest {
     private static final String VALID_DEPARTMENT = BENSON.getDepartment().toString();
     private static final String VALID_MANAGER = BENSON.getManager().toString();
     private static final List<XmlAdaptedTag> VALID_TAGS = BENSON.getTags().stream()
+            .map(XmlAdaptedTag::new)
+            .collect(Collectors.toList());
+
+    private static final String VALID_NAME_2 = CARL.getName().toString();
+    private static final String VALID_PHONE_2 = CARL.getPhone().toString();
+    private static final String VALID_EMAIL_2 = CARL.getEmail().toString();
+    private static final String VALID_ADDRESS_2 = CARL.getAddress().toString();
+    private static final String VALID_DEPARTMENT_2 = CARL.getDepartment().toString();
+    private static final String VALID_MANAGER_2 = CARL.getManager().toString();
+    private static final List<XmlAdaptedTag> VALID_TAGS_2 = CARL.getTags().stream()
             .map(XmlAdaptedTag::new)
             .collect(Collectors.toList());
 
@@ -154,6 +167,19 @@ public class XmlAdaptedPersonTest {
                 new XmlAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_DEPARTMENT,
                         VALID_MANAGER, false, invalidTags);
         Assert.assertThrows(IllegalValueException.class, person::toModelType);
+    }
+
+    @Test
+    public void test_equals() {
+        XmlAdaptedPerson personOne =
+                new XmlAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_DEPARTMENT,
+                        VALID_MANAGER, VALID_TAGS);
+        XmlAdaptedPerson personTwo =
+                new XmlAdaptedPerson(VALID_NAME_2, VALID_PHONE_2, VALID_EMAIL_2, VALID_ADDRESS_2, VALID_DEPARTMENT_2,
+                        VALID_MANAGER_2, VALID_TAGS_2);
+
+        assertTrue(personOne.equals(personOne)); // same person
+        assertFalse(personOne.equals(personTwo)); // different person
     }
 
 }

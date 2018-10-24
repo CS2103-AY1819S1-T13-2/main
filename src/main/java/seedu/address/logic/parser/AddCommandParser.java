@@ -20,6 +20,7 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.Address;
 import seedu.address.model.person.Department;
 import seedu.address.model.person.Email;
+import seedu.address.model.person.Feedback;
 import seedu.address.model.person.Manager;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.OtHour;
@@ -115,11 +116,13 @@ public class AddCommandParser implements Parser<AddCommand> {
         PayDeductibles deductibles = PayDeductibles.DEFAULT_INITIAL_DEDUCTIBLES;
         Department department = ParserUtil.parseDepartment(argMultimap.getValue(PREFIX_DEPARTMENT).get());
         Manager manager = ParserUtil.parseManager(argMultimap.getValue(PREFIX_MANAGER).get());
+        Feedback feedback = Feedback.DEFAULT_INITIAL_FEEDBACK;
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
         boolean favourite = false;
 
         Person person = new Person(name, phone, email, address, rating, department, manager,
-            salary, hours, rate, deductibles, tagList, favourite);
+            salary, hours, rate, deductibles, feedback, tagList, favourite);
+
 
         return new AddCommand(person);
     }

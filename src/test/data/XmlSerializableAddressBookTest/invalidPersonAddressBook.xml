@@ -9,5 +9,6 @@
         <rating>10</rating>
         <department isPrivate="false">Accounting</department>
         <manager isPrivate="false">Ben Leong</manager>
+        <feedback>Great work on the recent event!</feedback>
     </persons>
 </addressbook>
