@@ -58,7 +58,8 @@ public class FeedbackCommand extends Command {
         Person editedPerson = new Person(personToEdit.getName(), personToEdit.getPhone(), personToEdit.getEmail(),
                 personToEdit.getAddress(), personToEdit.getRating(), personToEdit.getDepartment(),
                 personToEdit.getManager(), personToEdit.getSalary(), personToEdit.getOtHours(),
-                personToEdit.getOtRate(), personToEdit.getDeductibles(), feedback, personToEdit.getTags());
+                personToEdit.getOtRate(), personToEdit.getDeductibles(), personToEdit.getFeedback(),
+                personToEdit.getTags(), personToEdit.getFavourite());
 
         model.updatePerson(personToEdit, editedPerson);
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);

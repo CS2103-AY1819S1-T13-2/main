@@ -53,7 +53,7 @@ public class XmlAdaptedPerson {
     @XmlElement(required = true)
     private String rate;
     @XmlElement(required = true)
-    private String deductible;
+    private String deductibles;
     @XmlElement(required = true)
     private String feedback;
     @XmlElement(required = true)

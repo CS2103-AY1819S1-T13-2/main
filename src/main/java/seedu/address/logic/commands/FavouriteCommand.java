@@ -71,8 +71,8 @@ public class FavouriteCommand extends Command {
         return new Person(personToFavourite.getName(), personToFavourite.getPhone(), personToFavourite.getEmail(),
                 personToFavourite.getAddress(), personToFavourite.getRating(), personToFavourite.getDepartment(),
                 personToFavourite.getManager(), personToFavourite.getSalary(), personToFavourite.getOtHours(),
-                personToFavourite.getOtRate(), personToFavourite.getDeductibles(), personToFavourite.getTags(),
-                newFavourite);
+                personToFavourite.getOtRate(), personToFavourite.getDeductibles(), personToFavourite.getFeedback(),
+                personToFavourite.getTags(), newFavourite);
     }
     @Override
     public boolean equals(Object other) {

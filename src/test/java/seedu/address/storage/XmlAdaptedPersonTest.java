@@ -173,10 +173,10 @@ public class XmlAdaptedPersonTest {
     public void test_equals() {
         XmlAdaptedPerson personOne =
                 new XmlAdaptedPerson(VALID_NAME, VALID_PHONE, VALID_EMAIL, VALID_ADDRESS, VALID_DEPARTMENT,
-                        VALID_MANAGER, VALID_TAGS);
+                        VALID_MANAGER, false, VALID_TAGS);
         XmlAdaptedPerson personTwo =
                 new XmlAdaptedPerson(VALID_NAME_2, VALID_PHONE_2, VALID_EMAIL_2, VALID_ADDRESS_2, VALID_DEPARTMENT_2,
-                        VALID_MANAGER_2, VALID_TAGS_2);
+                        VALID_MANAGER_2, false, VALID_TAGS_2);
 
         assertTrue(personOne.equals(personOne)); // same person
         assertFalse(personOne.equals(personTwo)); // different person
