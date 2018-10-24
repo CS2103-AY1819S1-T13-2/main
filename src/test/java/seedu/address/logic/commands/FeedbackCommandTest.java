@@ -47,6 +47,7 @@ public class FeedbackCommandTest {
         // different person -> returns false
         assertFalse(feedbackFirstCommand.equals(feedbackSecondCommand));
     }
+
     @Test
     public void execute_success() {
         Index indexLastPerson = Index.fromOneBased(model.getFilteredPersonList().size());
