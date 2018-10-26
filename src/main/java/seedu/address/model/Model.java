@@ -42,6 +42,10 @@ public interface Model {
      */
     void updatePerson(Person target, Person editedPerson);
 
+    /**
+     * Add the given person to favourite.
+     * The person must exist in the address book.
+     */
     void favouritePerson(Person target, Person favouritedPerson);
 
     /** Returns an unmodifiable view of the filtered person list */
